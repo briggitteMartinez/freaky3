@@ -1,0 +1,36 @@
+-- database: ../db/products.db
+
+-- Create the products table
+CREATE TABLE IF NOT EXISTS products (
+    id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    slug TEXT NOT NULL UNIQUE,
+    description TEXT,
+    sku TEXT NOT NULL UNIQUE,
+    img_url TEXT,
+    price REAL NOT NULL,
+    brand TEXT NOT NULL
+);
+
+-- Insert products
+INSERT INTO products (id, name, slug, description, sku, img_url, price, brand) VALUES
+(1, 'Dior Addict Lip Glow', 'dior-addict-lip-glow', 'Moisturizing lip balm with subtle color enhancement.', 'DIOR-BEAUTY-001', 'https://picsum.photos/seed/1/400/400?grayscale', 41.50, 'Dior'),
+(2, 'Diorshow Iconic Overcurl Mascara', 'diorshow-iconic-overcurl-mascara', 'Volume mascara for long-lasting curled lashes.', 'DIOR-BEAUTY-002', 'https://picsum.photos/seed/2/400/400?grayscale', 37.00, 'Dior'),
+(3, 'Dior Backstage Foundation', 'dior-backstage-foundation', 'Professional finish foundation with a natural glow.', 'DIOR-BEAUTY-003', 'https://picsum.photos/seed/3/400/400?grayscale', 51.50, 'Dior'),
+(4, 'Dior Forever Skin Glow', 'dior-forever-skin-glow', 'Long-wear foundation with a luminous finish.', 'DIOR-BEAUTY-004', 'https://picsum.photos/seed/4/400/400?grayscale', 54.50, 'Dior'),
+(5, 'Rouge Dior Lipstick', 'rouge-dior-lipstick', 'Highly pigmented lipstick with caring ingredients.', 'DIOR-BEAUTY-005', 'https://picsum.photos/seed/5/400/400?grayscale', 42.00, 'Dior'),
+(6, 'Capture Totale Super Potent Serum', 'capture-totale-super-potent-serum', 'Anti-aging serum with high concentration actives.', 'DIOR-BEAUTY-006', 'https://picsum.photos/seed/6/400/400?grayscale', 122.50, 'Dior'),
+(7, 'Dior Prestige La Crème', 'dior-prestige-la-creme', 'Luxurious facial cream enriched with rose extract.', 'DIOR-BEAUTY-007', 'https://picsum.photos/seed/7/400/400?grayscale', 297.50, 'Dior'),
+(8, 'Dior Lip Maximizer', 'dior-lip-maximizer', 'Plumping lip gloss with mirror shine.', 'DIOR-BEAUTY-008', 'https://picsum.photos/seed/8/400/400?grayscale', 41.50, 'Dior'),
+(9, 'Forever Cushion Powder', 'forever-cushion-powder', 'Lightweight powder with a soft matte finish.', 'DIOR-BEAUTY-009', 'https://picsum.photos/seed/9/400/400?grayscale', 62.00, 'Dior'),
+(10, 'Dior Sauvage Parfum', 'dior-sauvage-parfum', 'Deeper version of the iconic Sauvage fragrance.', 'DIOR-BEAUTY-010', 'https://picsum.photos/seed/10/400/400?grayscale', 119.50, 'Dior'),
+(11, 'Miss Dior Eau de Parfum', 'miss-dior-eau-de-parfum', 'Floral scent with rose, patchouli and vanilla.', 'DIOR-BEAUTY-011', 'https://picsum.photos/seed/11/400/400?grayscale', 122.00, 'Dior'),
+(12, 'Dior Addict Lip Tint', 'dior-addict-lip-tint', 'Long-lasting lip tint with a natural finish.', 'DIOR-BEAUTY-012', 'https://picsum.photos/seed/12/400/400?grayscale', 39.50, 'Dior'),
+(13, 'Backstage Glow Face Palette', 'backstage-glow-face-palette', 'Highlight and blush palette for professional glow.', 'DIOR-BEAUTY-013', 'https://picsum.photos/seed/13/400/400?grayscale', 56.50, 'Dior'),
+(14, 'Forever Natural Bronze', 'forever-natural-bronze', 'Silky bronzing powder for a natural sun-kissed look.', 'DIOR-BEAUTY-014', 'https://picsum.photos/seed/14/400/400?grayscale', 51.00, 'Dior'),
+(15, 'Capture Youth Glow Booster', 'capture-youth-glow-booster', 'Vitamin C serum for radiant and energized skin.', 'DIOR-BEAUTY-015', 'https://picsum.photos/seed/15/400/400?grayscale', 107.00, 'Dior'),
+(16, 'Lip Sugar Scrub', 'lip-sugar-scrub', 'Melting lip scrub for soft, hydrated lips.', 'DIOR-BEAUTY-016', 'https://picsum.photos/seed/16/400/400?grayscale', 39.50, 'Dior'),
+(17, 'Dior Prestige Le Nectar', 'dior-prestige-le-nectar', 'Concentrated anti-aging serum with rose molecules.', 'DIOR-BEAUTY-017', 'https://picsum.photos/seed/17/400/400?grayscale', 352.00, 'Dior'),
+(18, 'Forever Undercover Concealer', 'forever-undercover-concealer', 'Full coverage concealer with 24h wear.', 'DIOR-BEAUTY-018', 'https://picsum.photos/seed/18/400/400?grayscale', 39.50, 'Dior'),
+(19, 'Dior Vernis Nail Lacquer', 'dior-vernis-nail-lacquer', 'High-shine nail polish with gel effect.', 'DIOR-BEAUTY-019', 'https://picsum.photos/seed/19/400/400?grayscale', 29.50, 'Dior'),
+(20, 'Hydra Life Fresh Sorbet Creme', 'hydra-life-fresh-sorbet-creme', 'Hydrating daily gel cream for smooth skin.', 'DIOR-BEAUTY-020', 'https://picsum.photos/seed/20/400/400?grayscale', 69.00, 'Dior');
