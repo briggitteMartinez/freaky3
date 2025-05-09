@@ -19,8 +19,8 @@ export const routes: Routes = [
         path:'admin',   
         component: AdminLayoutComponent,
         children: [
-            { path: '', redirectTo:'admin-home', pathMatch: 'full' },
-            { path: 'admin-home', component: AdminHomeComponent },
+            { path: '', redirectTo:'home', pathMatch: 'full' },
+            { path: 'home', component: AdminHomeComponent },
             { path: 'new', component: AdminNewComponent}
         ]
     
