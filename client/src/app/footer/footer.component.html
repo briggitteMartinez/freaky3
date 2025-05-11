@@ -1,0 +1,40 @@
+<footer class="footer">
+    <!-- Sign up -->
+    <form class="signup">
+      <h2>Sign up for exclusivity</h2>
+      <div class="signup-form">
+        <input type="email" placeholder="Enter an email" />
+        <button type="submit">Confirm</button>
+      </div>
+    </form>
+  
+    <!-- Mobile: Accordion -->
+    <div class="mobile-only">
+      <div *ngFor="let category of categories; let i = index" class="accordion">
+        <div class="accordion-header" (click)="toggleAccordion(i)">
+          {{ category.title }}
+          <span>{{ accordionOpen[i] ? '▲' : '▼' }}</span>
+        </div>
+        <ul *ngIf="accordionOpen[i]">
+          <li *ngFor="let item of category.content">
+            <a [routerLink]="item.url">{{ item.text }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  
+    <!-- Desktop: Grid -->
+    <div class="desktop-only category-grid">
+      <div *ngFor="let category of categories" class="category-column">
+        <h3>{{ category.title }}</h3>
+        <ul>
+          <li *ngFor="let item of category.content">
+            <a [routerLink]="item.url">{{ item.text }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  
+    <small>&copy; Briggitte Martinez</small>
+  </footer>
+  
