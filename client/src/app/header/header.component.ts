@@ -4,17 +4,20 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { LucideAngularModule,HeartIcon,ShoppingCartIcon } from 'lucide-angular';
 
 
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink, LucideAngularModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnDestroy {
+  readonly HeartIcon = HeartIcon;
+  readonly ShoppingCartIcon = ShoppingCartIcon;
   searchQuery = '';
   menuOpen = false;
   private routerSub: Subscription;

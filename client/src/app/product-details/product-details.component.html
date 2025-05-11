@@ -1,2 +1,49 @@
-<p>product-details works!</p>
-
+<ng-container *ngIf="product; else loading">
+    <main class="details-layout">
+      <div>
+        <img
+          [src]="product.img_url"
+          [alt]="product.name"
+          class="product-image"
+        />
+      </div>
+  
+      <div class="product-info">
+        <h1>{{ product.name }}</h1>
+        <p class="brand">{{ product.brand }}</p>
+  
+        <button (click)="orderProduct()" class="order-btn">
+          <span>Order</span>
+          <span>{{ product.price | currency: 'SEK':'symbol':'1.0-0' }}</span>
+        </button>
+  
+        <div class="description">
+          <h6>Description</h6>
+          <p>{{ product.description }}</p>
+        </div>
+      </div>
+    </main>
+  
+    <section class="related-products" *ngIf="relatedProducts.length">
+      <h2>Discover More Like This</h2>
+      <div class="related-grid">
+        <a
+          *ngFor="let related of relatedProducts"
+          [routerLink]="['/products', related.id]"
+          class="product-card"
+        >
+          <img [src]="related.img_url" [alt]="related.name" />
+          <h3>{{ related.name }}</h3>
+          <p>{{ related.price | currency: 'SEK' }}</p>
+        </a>
+      </div>
+    </section>
+  </ng-container>
+  
+  <ng-template #loading>
+    <div class="loading">
+      <p>Loading product details...</p>
+    </div>
+  </ng-template>
+  
+  

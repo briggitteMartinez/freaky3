@@ -1,10 +1,12 @@
 <section class="search-results">
     <h2 *ngIf="products && products.length > 0">
-        {{ products.length }} result{{ products.length === 1 ? '' : 's' }} for "{{ query }}"
-      </h2>
+      {{ products.length }} result{{ products.length === 1 ? '' : 's' }} for "{{ query }}"
+    </h2>
   
     <ng-container *ngIf="products.length > 0; else noResults">
-      <app-product-card [products]="products" />
+      <div class="result-grid">
+        <app-product-card [products]="products" />
+      </div>
     </ng-container>
   
     <ng-template #noResults>
@@ -12,4 +14,3 @@
       <p>Try another search term.</p>
     </ng-template>
   </section>
-  

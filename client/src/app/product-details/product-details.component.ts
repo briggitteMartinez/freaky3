@@ -1,42 +1,43 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-// import { HttpClient } from '@angular/common/http';
-import { Product } from '../../types/Product';
+import { CommonModule } from '@angular/common';
 import { ProductService } from '../services/product.service';
+import { Product } from '../../types/Product';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-product-details',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './product-details.component.html',
-  styleUrl: './product-details.component.scss'
+  styleUrls: ['./product-details.component.scss']
 })
-export class ProductDetailsComponent {
+export class ProductDetailsComponent implements OnInit {
+  private route = inject(ActivatedRoute);
+  private productService = inject(ProductService);
 
-  // private http = inject(HttpClient); // HttpClient is used to make HTTP requests
-  private route = inject(ActivatedRoute);// ActivatedRoute is used to access route parameters
-  productId: string | null = null; // productId will hold the ID of the product from the route parameter
   product!: Product;
+  relatedProducts: Product[] = [];
 
-   private productService = inject(ProductService);
-  
+  ngOnInit() {
+    // Lyssna på varje route-ändring
+    this.route.paramMap.subscribe(params => {
+      const id = params.get('id');
+      if (id) {
+        this.productService.getProductById(id).subscribe(product => {
+          this.product = product;
+        });
 
- 
-   ngOnInit(): void {
-     const id = this.route.snapshot.paramMap.get('id');
-     if (id) {
-       this.productService.getProductById(id).subscribe((product) => {
-         this.product = product;
-       });
-     }
-   }  
-  
-  // ngOnInit(): void {
+        this.productService.getAllProducts().subscribe(products => {
+          this.relatedProducts = products
+            .filter(p => p.id !== +id)
+            .slice(0, 3);
+        });
+      }
+    });
+  }
 
-  //   const id = this.route.snapshot.paramMap.get('id');
-  //   console.log("Product-id: ", id);
-  //   this.http.get<Product>(`/api/products/${id}`)
-  //   .subscribe(data => this.product = data); // Fetch product details from the API using the product ID
-   
-  // }
-
-};
+  orderProduct() {
+    alert(`You ordered: ${this.product.name} (${this.product.price} kr)`);
+  }
+}

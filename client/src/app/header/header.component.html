@@ -13,8 +13,18 @@
         name="search"
         placeholder="Search products..."
       />
-      <button type="submit">Search</button>
+      <button type="submit"></button>
     </form>
+    <div class="icons-container">
+            <!-- Ikon för favoriter -->
+    <a routerLink="/favourites" class="heart-icon">
+        <lucide-angular [img]="HeartIcon"></lucide-angular>
+    </a >
+    <!-- Ikon för varukorg -->
+    <a routerLink="/cart" class="cart-icon">
+        <lucide-angular [img]="ShoppingCartIcon"></lucide-angular>
+    </a >
+    </div>
   
     <!-- Dropdown meny från vänster -->
     <div class="mobile-menu" *ngIf="menuOpen">

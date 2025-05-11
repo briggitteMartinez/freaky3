@@ -34,7 +34,7 @@ export class AdminNewComponent {
 
     this.productService.addProduct(product).subscribe((product) => {
       console.log('Product added:', product);
-      this.router.navigate(['/']);
+      this.router.navigate(['/admin']);
     });
   }
 }
