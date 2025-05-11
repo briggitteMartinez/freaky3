@@ -1,16 +1,17 @@
-<p>product-card works!</p>
-<section class="product-card">
-    <h2>Product Card</h2>
-    <ul>
-        <li *ngFor="let product of products">
-            <a [routerLink]="['/products', product.id]">{{ product.name }}></a>
-            <p>Price: {{ product.price}}</p>
-            <p>Description: {{ product.description }}</p>
-            <img [src]="product.img_url" alt="{{ product.name }}" />
-        </li>
-    </ul>
-  <!-- <h2>{{ product.name }}</h2>
-  <p>Price: {{ product.price | currency }}</p>
-  <p>Description: {{ product.description }}</p>
-  <button (click)="addToCart(product)">Add to Cart</button> -->
-  </section>    
+  
+  <section class="product-grid">
+    <div
+      class="product-card"
+      *ngFor="let product of products | slice:0:8"
+    >
+    <a [routerLink]="['/products', product.id]" class="image-wrapper">
+        <img [src]="product.img_url" [alt]="product.name" class="product-img" />
+        <lucide-angular [img]="HeartIcon" class="heart-icon"></lucide-angular>
+      </a>
+      <div class="product-info">
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.price | currency: 'SEK':'symbol':'1.0-0' }}</p>
+      </div>
+    </div>
+  </section>
+  

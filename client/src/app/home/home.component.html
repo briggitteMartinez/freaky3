@@ -1,2 +1,16 @@
-<p>home works!</p>
-<app-product-card  [products]="products" />
+<app-hero></app-hero>
+
+<!-- Spotlight-produkter – visas bara på stora skärmar -->
+<section class="spotlight-wrapper">
+  <div class="spot-card" *ngFor="let product of products | slice:0:3">
+    <a [routerLink]="['/products', product.id]" class="image-wrapper">
+      <img [src]="product.img_url" [alt]="product.name" class="product-img" />
+      <div class="spot-title">{{ product.name }}</div>
+    </a>
+  </div>
+</section>
+
+<!-- Vanliga produktkort -->
+<section class="product-grid">
+  <app-product-card [products]="products" />
+</section>

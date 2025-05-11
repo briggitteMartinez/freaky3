@@ -17,6 +17,15 @@ app.get('/products', (req, res) => {
     res.json(products);
 });
 
+
+app.get('/products/search', (req, res) => {
+    const q = req.query.q;
+    const search = db
+      .prepare('SELECT * FROM products WHERE name LIKE ?')
+      .all(`%${q}%`);
+    res.json(search);
+});
+
 //GET /api/products/:id
 app.get('/products/:id', (req, res) => {
     
@@ -25,19 +34,8 @@ app.get('/products/:id', (req, res) => {
     
     res.json(productId);
 });
-//GET /api/products/:slug
-app.get('/products/:slug', (req, res) => {
-    
-    // Hämta slug från databasen
-    const productSlug = db.prepare('SELECT * FROM products WHERE slug = ?').get(req.params.slug);
-    
-    res.json(productSlug);
-});
 
-app.get('/search/:q', (req, res) => {
-    const search = db.prepare('SELECT * FROM products WHERE name LIKE ?').all(`%${req.params.q}%`);
-    res.json(search);
-});
+
 
 app.post('/products', (req, res) => {
     const product = req.body;

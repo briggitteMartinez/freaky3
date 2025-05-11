@@ -1,0 +1,28 @@
+<header class="site-header">
+    <!-- Hamburgerikon till vänster -->
+    <button class="hamburger" (click)="toggleMenu()">☰</button>
+  
+    <!-- Centralt placerad logotyp -->
+    <a routerLink="/" class="logo">Dior</a>
+  
+    <!-- Sökformulär -->
+    <form (submit)="onSearch()" class="search-form">
+      <input
+        type="text"
+        [(ngModel)]="searchQuery"
+        name="search"
+        placeholder="Search products..."
+      />
+      <button type="submit">Search</button>
+    </form>
+  
+    <!-- Dropdown meny från vänster -->
+    <div class="mobile-menu" *ngIf="menuOpen">
+      <ul>
+        <li><a routerLink="/new">New Arrivals</a></li>
+        <li><a routerLink="/best-sellers">Best Sellers</a></li>
+        <li><a routerLink="/fragrance">Fragrance</a></li>
+        <li><a routerLink="/makeup">Makeup</a></li>
+      </ul>
+    </div>
+  </header>

@@ -5,6 +5,7 @@ import { PublicLayoutComponent } from './public-layout/public-layout.component';
 import { AdminLayoutComponent } from './admin/admin-layout/admin-layout.component';
 import { AdminNewComponent } from './admin/admin-new/admin-new.component';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
+import { SearchResultComponent } from './search-result/search-result.component'; 
 
 export const routes: Routes = [
     {
@@ -12,7 +13,8 @@ export const routes: Routes = [
         component: PublicLayoutComponent,
         children: [ 
             { path: '', component: HomeComponent },
-            { path: 'products/:id', component: ProductDetailsComponent}
+            { path: 'products/:id', component: ProductDetailsComponent},
+            { path: 'search', component: SearchResultComponent }
         ]
     },
     {
