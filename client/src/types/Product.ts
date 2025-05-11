@@ -4,7 +4,7 @@ export interface Product {
   slug: string; // URL-friendly version of the product name
   description: string; // Description of the product
   sku: string; // Unique identifier for inventory management
-  image_url: string; // URL of the product image
+  img_url: string; // URL of the product image
   price: number; // Price of the product
   brand: string; // Brand of the product
   };                

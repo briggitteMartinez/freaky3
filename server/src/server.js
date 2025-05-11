@@ -21,7 +21,7 @@ app.get('/products', (req, res) => {
 app.get('/products/:id', (req, res) => {
     
     // Hämta slug från databasen
-    const productSlug = db.prepare('SELECT * FROM products WHERE id = ?').get(req.params.id);
+    const productId = db.prepare('SELECT * FROM products WHERE id = ?').get(req.params.id);
     
     res.json(productId);
 });

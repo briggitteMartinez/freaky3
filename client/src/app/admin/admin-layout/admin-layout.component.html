@@ -1,11 +1,22 @@
-<header>
-    <h1>Admin layout works Header!</h1>
 
-</header>
-<main>
-    <router-outlet></router-outlet>
-</main>
-<footer>
+<div class="admin-layout">
+    <header class="admin-header">
+      <h1>Admin</h1>
+    </header>
+  
+    <div class="admin-body">
+      <nav class="admin-sidebar">
+        <ul>
+          <li><a routerLink="/admin/products">Products</a></li>
+          <!-- Lägg till fler länkar här-->
+        </ul>
+      </nav>
+  
+      <main class="admin-content">
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+  </div>
+  <footer>
     <small>the end</small>
 </footer>
-

@@ -12,9 +12,7 @@ import { RouterModule } from '@angular/router';
 })
 export class AppComponent {
   title = 'client';
-  tasks: any [] = [
-    { id: 1, name: 'Task 1', completed: false },  // Exempel på uppgifter
-    { id: 2, name: 'Task 2', completed: true }];
+
 
   //providern vi la tillprecis gör det möjligt för oss att eterfråga HttpClient
   // detta kallas för dependency injection

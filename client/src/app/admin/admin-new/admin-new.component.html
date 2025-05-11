@@ -1,1 +1,42 @@
-<p>admin-new works!</p>
+
+
+    <form class="product-form" [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="name">Product Name</label>
+            <input type="text" id="name" formControlName="name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="slug">Slug (URL-friendly name)</label>
+            <input type="text" id="slug" formControlName="slug" required>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" formControlName="description"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="sku">SKU</label>
+            <input type="text" id="sku" formControlName="sku" required>
+        </div>
+
+        <div class="form-group">
+            <label for="img_url">Image URL</label>
+            <input type="url" id="img_url" formControlName="img_url">
+        </div>
+
+        <div class="form-group">
+            <label for="price">Price (SEK)</label>
+            <input type="number" id="price" formControlName="price" step="0.01" min="0" required>
+        </div>
+
+        <div class="form-group">
+            <label for="brand">Brand</label>
+            <input type="text" id="brand" formControlName="brand" required>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit">Add Product</button>
+        </div>
+    </form>

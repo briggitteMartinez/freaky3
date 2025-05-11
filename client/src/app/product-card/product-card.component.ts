@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { Product } from '../../types/Product';
 
 @Component({
   selector: 'app-product-card',
@@ -10,5 +11,5 @@ import { RouterModule } from '@angular/router';
 })
 export class ProductCardComponent {
   
-  @Input() products!: any[];
+  @Input() products: Product[] = [];
 }

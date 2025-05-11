@@ -22,7 +22,9 @@ export class ProductService {
     
   }
 
-  //getProductById(id: string): Observable<Product> {
-  //   // This method should return an observable of a product by id 
-  //   return this.http.get<Product>(`/api/products/${id}`);
+  getProductById(id: string): Observable<Product> {
+    // This method should return an observable of a product by id 
+    return this.http.get<Product>(`/api/products/${id}`);
+}
+
 }

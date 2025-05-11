@@ -1,1 +1,36 @@
-<p>admin-home works!</p>
+
+
+<div class="admin-home">
+    <div class="admin-header"><h2>All Products</h2><a class="newButton" routerLink="/admin/new" >New Product</a></div>
+  
+    <table class="product-table" *ngIf="products?.length; else noProducts">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>SKU</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>
+            <img
+              *ngIf="product.img_url"
+              [src]="product.img_url"
+              alt="{{ product.name }}"
+              class="product-img"
+            />
+          </td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.sku }}</td>
+          <td>{{ product.price + ' kr' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <ng-template #noProducts>
+      <p>No products found.</p>
+    </ng-template>
+  </div>
+  
